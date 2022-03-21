@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+}
+
+:root {
+    --primary: #40474F;
+    --image-background: #2e3338;
+    --image-background-loading: #3f3f3f;
+    --secundary: #000;
+    --accent: #b31500;
+    --text-active: #fff;
+    --text-inactive: #C2CCCE;
+}
+
+
+body {
+    background-color: var(--primary);
+}
+
+section:nth-of-type(1) {
+    padding: 0 8% 5% 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section a {
+    align-self: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+h1,
+h2,
+h3,
+p {
+    font-family: 'poe-vetica-new-condensed', sans-serif;
+    color: var(--text-active);
+}
+
+h3 {
+    padding-top: 5%;
+}
+
+
+section svg.icon-rijks-logo {
+    position: relative;
+    max-width: 100vw;
+
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+form button {
+    border-radius: 0 25px 25px 0;
+    background-color: var(--secundary);
+    padding: 1%;
+    color: var(--text-active);
+    border: none;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    border-radius: 25px 0 0 25px;
+    width: 40%;
+    padding: 1%;
+    border: none;
+}
+
+input[type="submit"] {
+    border-radius: 25px 25px 25px 25px;
+    background-color: var(--secundary);
+    color: var(--text-active);
+    border: none;
+    padding: 10px 15px 10px 15px;
+    margin-left: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+ul li {
+    list-style: none;
+    padding: 0 1% 5% 1%;
+    position: relative;
+}
+
+
+section:nth-of-type(3) ul li {
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    background-color: var(--image-background);
+    animation: loading 2s ease;
+}
+
+section:nth-of-type(4) ul li {
+    width: 400px;
+    height: 400px;
+    background-color: var(--image-background);
+}
+
+
+ul li h2 {
+    font-size: 350%;
+    list-style: none;
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    top: 0;
+    margin-top: -10%;
+    text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.164);
+
+}
+
+ul li img {
+    list-style: none;
+    max-height: 300px;
+    max-width: 300px;
+    z-index: 1;
+    background-color: var(--image-background);
+    box-shadow: 10px 10px 46px 0px rgba(0, 0, 0, 0.36);
+}
+
+ul.details {
+    justify-content: center;
+}
+
+ul.details li {
+    width: 50%;
+
+}
+
+ul.details li div {
+    min-width: 100%;
+}
+
+ul.details li h2 {
+    padding: 5% 0 5% 0;
+    font-size: 150%;
+    text-align: left;
+    position: static;
+}
+
+ul.details li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+ul.details li img {
+    width: 100%;
+    align-items: flex-start;
+    padding-right: 5%;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    object-fit: contain;
+}
+
+
+
+@keyframes loading {
+
+    0%,
+    100% {
+        background-color: var(--image-background);
+    }
+
+    50% {
+        background-color: var(--image-background-loading);
+    }
+
+}
+
+@media only screen and (max-width: 936px) {
+    ul li img {
+
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+    ul li h2 {
+        font-size: 250%;
+    }
+
+    ul li {
+        padding: 0 1% 10% 1%;
+    }
+
+    input[type="text"] {
+        width: 70%;
+        padding: 2%;
+    }
+
+    form button {
+        padding: 2%;
+    }
+
+    section svg.icon-rijks-logo {
+
+        max-width: 70%;
+        left: 12%;
+
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    ul li img {
+
+        max-height: 150px;
+        max-width: 150px;
+    }
+
+    ul li h2 {
+        font-size: 175%;
+    }
+
+    input[type="text"] {
+        width: 70%;
+        padding: 3%;
+    }
+
+    form button {
+        padding: 3%;
+    }
+
+    ul li {
+        padding: 0 1% 10% 1%;
+    }
+
+    section svg.icon-rijks-logo {
+
+        max-width: 70%;
+        left: 12%;
+
+    }
+
+    ul.details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul.details li {
+        display: block;
+        width: 80%;
+    }
+
+    ul.details li img {
+        min-width: 100%;
+    }
+
+    ul.details li h2 {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    section:nth-of-type(1) {
+        padding: 0;
+    }
+}
