@@ -1,9 +1,10 @@
 # Progressive Web Apps @cmda-minor-web · 2021/22
 
+## Install node, NPM and Express
+I started by updating my version of Node.JS and NPM using Node Version Manager. If you want to install from scratch go to the [Node](https://nodejs.org/en/) website. Once Node was installed I followed the Node [Getting Started Guide](https://nodejs.org/en/docs/guides/getting-started-guide/), which helps you through setting up a simple https server and displaying 'Hello World' on localhost {port}.
 
-<!-- Here are some hints for your project! -->
+After that I started with Express. I navigated to my project directory to `npm init`. This makes a `package.json` file to store, among other things, dependencies. I installed Express using `npm install express`. After that i added a render function to my app.js to render the `index.html` file in my directory.
 
-<!-- Start out with a title and a description -->
 
 <!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
 
