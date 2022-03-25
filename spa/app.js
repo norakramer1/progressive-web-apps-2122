@@ -1,8 +1,12 @@
-const http = require('http');
+const http = require('http')
 const express = require('express')
+// const fetch = require('node-fetch')
 const app = express()
 const port = 3000
-require('dotenv').config()
+
+app.set('view engine', 'ejs');
+// Tell the views engine/ejs where the template files are stored (Settingname, value)
+app.set('views', './views');
 
 app.use(express.static(__dirname + '/public'));
 
@@ -11,9 +15,19 @@ console.log(`Example app listening on port ${port}`)
 })
 
 
-app.get("/", renderPage)
+// node fetch
+const response = await fetch('www.google.com');
 
-function renderPage(req, res) {
-res.sendFile(__dirname + "/public/index.html");
+// if (response.status === 301 || response.status === 302) {
+// 	const locationURL = new URL(response.headers.get('location'), response.url);
+// 	const response2 = await fetch(locationURL, { redirect: 'manual' });
+// 	console.dir(response2);
+// }
 
-}
+
+// get homepage of index.ejs
+// app.get('/', (req, res) => {
+    
+//     res.render('home', 
+//     { title: 'Hey', message: 'Hello there!' })
+//   })
