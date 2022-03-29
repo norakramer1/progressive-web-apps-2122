@@ -45,14 +45,14 @@ app.get("/search", (req, res) => {
 // detail page
 
 app.get('/:id', function (req, res) {
-  console.log(req.params.id)
+  //console.log(req.params.id)
   fetch(`https://www.rijksmuseum.nl/api/nl/collection/${req.params.id}?key=${apiKey}&ps=25&imgonly=true`)
 
     .then(response => {
       return response.json();
     })
     .then(detailed => {
-      console.log(detailed.artObject)
+     // console.log(detailed.artObject)
       res.render('detail', {
         data: detailed.artObject,
         pageTitle: "Rijksmuseum",
