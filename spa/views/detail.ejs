@@ -1,7 +1,20 @@
 <%- include('./partials/head') %>
+<%- include('./partials/search') %>
 
-<h1><%=data.title%></h1>
-<p><%=data.plaqueDescriptionEnglish%></p>
-<img src="<%=item.webImage.url%>" alt="">
+
+<ul class="details">
+    <li>
+        <img src="<%=data.webImage.url%>" alt="">
+        <div>
+            <h2><%=data.longTitle%></h2>
+            <p><%=data.plaqueDescriptionEnglish%></p>
+            <h3><%=data.dating.sortingDate%></h3>
+            <h3><%=data.materials%></h3>
+            <h3><%=data.dating.productionPlaces%></h3>
+        </div>
+
+
+    </li>
+</ul>
 
 <%- include('./partials/footer') %>

@@ -22,7 +22,7 @@ function renderPagina (req, res){
       res.render('home', {
         data: collection.artObjects,
         pageTitle: "Rijksmuseum",
-        id: collection.objectNumber
+        id: collection.artObjects.objectNumber
       })
   })
 .catch(err =>res.send) 
@@ -41,17 +41,23 @@ app.get("/search", (req, res) => {
     .catch(err => res.send(err))
 } )
 
+
 // detail page
-app.get(':id', function (req, res) {
-    fetch(`https://www.rijksmuseum.nl/api/nl/collection/${req.params.objectNumber}?key=${apiKey}&ps=25&imgonly=true`)
-        .then(async response => {
-            // console.log(response);
-            const collection = await response.json();
-            res.render('detail', {
-                data: collection.artObjects
-            });
-        })
-        .catch(err => res.send(err))
+
+app.get('/:id', function (req, res) {
+  console.log(req.params.id)
+  fetch(`https://www.rijksmuseum.nl/api/nl/collection/${req.params.id}?key=${apiKey}&ps=25&imgonly=true`)
+
+    .then(response => {
+      return response.json();
+    })
+    .then(detailed => {
+      console.log(detailed.artObject)
+      res.render('detail', {
+        data: detailed.artObject,
+        pageTitle: "Rijksmuseum",
+      })
+    })
 })
 
 

@@ -1,7 +1,13 @@
-<% data.forEach((item) =>  { %>
+
+<ul>
+     <% data.forEach((item) =>  { %>
     <a href="<%=item.objectNumber%>">
-    <h3><%=item.title%></h3>
-    <img src="<%=item.webImage.url%>" alt="">
-    <p><%=item.id%></p>
-</a>
-<% }) %>
+        <li>
+            <h3><%=item.title%></h3>
+                <img src="<%=item.webImage.url%>" alt="">
+            <p><%=item.id%></p>
+        </li>
+    </a>
+     <% }) %>
+
+</ul>
