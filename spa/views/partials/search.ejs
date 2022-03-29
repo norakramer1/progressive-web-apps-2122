@@ -1,5 +1,5 @@
 <section>
-    <a href="">
+    <a href="/">
       <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
         focusable="false" class="icon-rijks-logo ">
         <defs>
@@ -18,8 +18,8 @@
       </svg>
     </a>
     <!-- <a href="#info">meer informatie</a> -->
-    <form action="post">
-      <input type="text" placeholder="Zoek naar kunstenaars, schilderijen of jaartallen..">
+    <form method="GET" action="/search">
+      <input type="search" name="q" placeholder="Zoek naar kunstenaars, schilderijen of jaartallen..">
       <button type="submit" value="zoeken">Zoeken</button>
     </form>
   </section>

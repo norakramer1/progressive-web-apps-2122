@@ -7,6 +7,7 @@ require('dotenv').config()
 
 const apiKey = process.env.API_KEY;
 app.set('view engine', 'ejs');
+
 // Tell the views engine/ejs where the template files are stored (Settingname, value)
 app.set('views', './views');
 
@@ -20,34 +21,40 @@ function renderPagina (req, res){
       const collection = await response.json();
       res.render('home', {
         data: collection.artObjects,
-        pageTitle: "Rijksmuseum"
+        pageTitle: "Rijksmuseum",
+        id: collection.objectNumber
       })
   })
 .catch(err =>res.send) 
 }
 
+// search
+app.get("/search", (req, res) => {
+  fetch(`https://www.rijksmuseum.nl/api/nl/collection?key=${apiKey}&ps=25&imgonly=true&q=${req.query.q}`)
+  .then(async response => {
+    const collection = await response.json();
+    res.render('home', {
+    data: collection.artObjects
+      });
+    })
+    
+    .catch(err => res.send(err))
+} )
+
 // detail page
-// app.get('/kunst/:id', (req, res) => {
-//     fetch(`https://www.rijksmuseum.nl/api/nl/collection?key=${API_KEY}`)
-//         .then(async response => {
-//             const artWorks = await response.json()
-//             const result = artWorks.artObjects.filter((item) => item.id === req.params.id)
-//             res.render('detail', {
-//                 pageTitle: `Kunstwerk: ${req.params.id}`,
-//                 data: result
-//             })
-//         })
-//         .catch(err => res.send(err))
-// })
+app.get(':id', function (req, res) {
+    fetch(`https://www.rijksmuseum.nl/api/nl/collection/${req.params.objectNumber}?key=${apiKey}&ps=25&imgonly=true`)
+        .then(async response => {
+            // console.log(response);
+            const collection = await response.json();
+            res.render('detail', {
+                data: collection.artObjects
+            });
+        })
+        .catch(err => res.send(err))
+})
 
 
 app.listen(port, () => {
 console.log(`Example app listening on port ${port}`)
 })
-
-// async function fetchJson(url) {
-//  return await fetch(url)
-//    .then((response) => response.json())
-//    .then((body) => body.data)
-//    .catch((error) => error)
-// }
