@@ -1,10 +1,10 @@
 const http = require('http')
 const express = require('express')
 const fetch = require('node-fetch')
+// const fetch = (...args) => import("node-fetch").then(({ default: fetch}) => fetch(...args))
 const app = express()
 const port = 3000
 require('dotenv').config()
-
 const apiKey = process.env.API_KEY;
 app.set('view engine', 'ejs');
 
@@ -12,6 +12,11 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.use(express.static(__dirname + '/public'));
+
+app.get('/favico.ico', (req, res) => {
+  res.sendFile("images/rijksArt.png");
+});
+
 
 app.get("/", renderPagina)
 
@@ -61,5 +66,5 @@ app.get('/:id', function (req, res) {
 
 
 app.listen(port, () => {
-console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`)
 })

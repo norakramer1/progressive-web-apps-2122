@@ -68,7 +68,7 @@ form button {
     cursor: pointer;
 }
 
-input[type="text"] {
+input[type="search"] {
     border-radius: 25px 0 0 25px;
     width: 40%;
     padding: 1%;
@@ -138,8 +138,8 @@ ul li h2 {
 
 ul li img {
     list-style: none;
-    max-height: 300px;
-    max-width: 300px;
+    max-width: 40%;
+    max-height: 40%;
     z-index: 1;
     background-color: var(--image-background);
     box-shadow: 10px 10px 46px 0px rgba(0, 0, 0, 0.36);
