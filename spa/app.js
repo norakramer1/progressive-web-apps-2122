@@ -13,9 +13,9 @@ app.set('views', './views');
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/favico.ico', (req, res) => {
-  res.sendFile("images/rijksArt.png");
-});
+// app.get('/favico.ico', (req, res) => {
+//   res.sendFile("images/rijksArt.png");
+// });
 
 
 app.get("/", renderPagina)
@@ -62,6 +62,13 @@ app.get('/:id', function (req, res) {
         pageTitle: "Rijksmuseum",
       })
     })
+})
+
+// offline page
+app.get("/offline", (req, res) => {
+  res.render('offline', {
+    pageTitle: "Offline"
+  })
 })
 
 

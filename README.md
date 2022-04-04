@@ -39,6 +39,7 @@ this app used to be a client side rendered application. Meaning the fetching of 
 ## Enhancements for the critical rendering path
 ## Feature checklist
 ## Sources
+- [net ninja PWA](https://www.youtube.com/watch?v=4XT23X0Fjfk&list=PL4cUxeGkcC9gTxqJBcDmoi5Q2pzDusSL7)
 
 ## License
 This project uses the [MIT](https://github.com/norakramer1/progressive-web-apps-2122/blob/main/LICENSE) license. 
