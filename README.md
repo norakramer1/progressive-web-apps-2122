@@ -37,10 +37,10 @@ this app used to be a client side rendered application. Meaning the fetching of 
 ## Activity diagram
 
 ### Activity diagram Home/details
-![Home activity diagram](https://github.com/norakramer1/progressive-web-apps-2122/spa/public/images/home-activity-diagram.png)
+![Home activity diagram](https://github.com/norakramer1/progressive-web-apps-2122/blob/main/spa/public/images/home-activity-diagram.png)
 
 ### Activity diagram Search
-![Search activity diagram](https://github.com/norakramer1/progressive-web-apps-2122/spa/public/images/search-activity-diagram.png)
+![Search activity diagram](https://github.com/norakramer1/progressive-web-apps-2122/blob/main/spa/public/images/search-activity-diagram.png)
 
 ## Service worker
 Ik heb een service worker toegevoegd om bij netwerkproblemen of een fout in de server ook files te kunnen serveren. Als je voor het eerst op de website wordt er een cache aangemaakt en geopend. Daarna wordt er content ingeladen. De service worker luistert naar een aantal events (install, activate en fetch), als er iets veranderd of geïnstalleerd wordt gaat het dit opslaan in de cache om het met netwerkproblemen te laten werken. De cache zet alle assets die op de '/' (home) route gebruikt worden erin en ook de CSS.
