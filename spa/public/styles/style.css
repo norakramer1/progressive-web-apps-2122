@@ -48,7 +48,7 @@ h3 {
 }
 
 
-section svg.icon-rijks-logo {
+a svg {
     position: relative;
     max-width: 100vw;
 
@@ -88,6 +88,8 @@ input[type="submit"] {
     display: none;
 }
 
+
+
 div {
     display: flex;
     flex-direction: column;
@@ -102,6 +104,7 @@ ul {
 }
 
 ul li {
+    max-width: 40%;
     list-style: none;
     padding: 0 1% 5% 1%;
     position: relative;
@@ -109,17 +112,9 @@ ul li {
 
 
 section:nth-of-type(3) ul li {
-    width: 200px;
-    height: 300px;
     margin: 20px;
     background-color: var(--image-background);
     animation: loading 2s ease;
-}
-
-section:nth-of-type(4) ul li {
-    width: 400px;
-    height: 400px;
-    background-color: var(--image-background);
 }
 
 
@@ -136,14 +131,22 @@ ul li h2 {
 
 }
 
+ul li a {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
 ul li img {
     list-style: none;
-    max-width: 40%;
+     max-width: 40%;
     max-height: 40%;
     z-index: 1;
     background-color: var(--image-background);
     box-shadow: 10px 10px 46px 0px rgba(0, 0, 0, 0.36);
-}
+} 
 
 ul.details {
     justify-content: center;
@@ -220,8 +223,8 @@ ul.details li img {
         padding: 2%;
     }
 
-    section svg.icon-rijks-logo {
-
+    section svg {
+        padding: 5%;
         max-width: 70%;
         left: 12%;
 
@@ -233,13 +236,13 @@ ul.details li img {
 
         max-height: 150px;
         max-width: 150px;
-    }
+    } 
 
     ul li h2 {
         font-size: 175%;
     }
 
-    input[type="text"] {
+    input[type="search"] {
         width: 70%;
         padding: 3%;
     }

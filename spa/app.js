@@ -1,11 +1,14 @@
-const http = require('http')
-const express = require('express')
-const fetch = require('node-fetch')
+const http = require('http');
+const express = require('express');
+const fetch = require('node-fetch');
 // const fetch = (...args) => import("node-fetch").then(({ default: fetch}) => fetch(...args))
-const app = express()
-const port = 3000
-require('dotenv').config()
+const app = express();
+const port = 3000;
+require('dotenv').config();
+const compression = require('compression');
 const apiKey = process.env.API_KEY;
+
+app.use(compression());
 app.set('view engine', 'ejs');
 
 // Tell the views engine/ejs where the template files are stored (Settingname, value)
@@ -16,6 +19,24 @@ app.use(express.static(__dirname + '/public'));
 // app.get('/favico.ico', (req, res) => {
 //   res.sendFile("images/rijksArt.png");
 // });
+
+
+// caching headers
+let setCache = function (req, res, next) {
+  const period = 60 * 5
+
+  // cache for GET requests
+  if (req.method == 'GET') {
+    res.set('Cache-control', `public, max-age=${period}`)
+  } else {
+    res.set('Cache-control', `no-store`)
+  }
+  
+  next()
+}
+
+app.use(setCache)
+
 
 
 app.get("/", renderPagina)

@@ -1,12 +1,14 @@
 
 <ul>
      <% data.forEach((item) =>  { %>
-    <a href="<%=item.objectNumber%>">
         <li>
-            <img src="<%=item.webImage.url%>" alt="">
+    <a href="<%=item.objectNumber%>">
+     
+            <img src="<%=item.webImage.url.slice(0, -3) + "=s300"%>" alt="<%=item.title%>">
                 <h3><%=item.title%></h3>
-        </li>
+    
     </a>
+</li>
      <% }) %>
 
 </ul>
