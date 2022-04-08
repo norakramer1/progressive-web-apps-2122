@@ -16,10 +16,6 @@ app.set('views', './views');
 
 app.use(express.static(__dirname + '/public'));
 
-// app.get('/favico.ico', (req, res) => {
-//   res.sendFile("images/rijksArt.png");
-// });
-
 
 // caching headers
 let setCache = function (req, res, next) {
@@ -31,7 +27,7 @@ let setCache = function (req, res, next) {
   } else {
     res.set('Cache-control', `no-store`)
   }
-  
+
   next()
 }
 
@@ -41,31 +37,31 @@ app.use(setCache)
 
 app.get("/", renderPagina)
 
-function renderPagina (req, res){
+function renderPagina(req, res) {
   fetch(`https://www.rijksmuseum.nl/api/nl/collection?key=${apiKey}&ps=25&imgonly=true`)
-  .then(async response => {
+    .then(async response => {
       const collection = await response.json();
       res.render('home', {
         data: collection.artObjects,
         pageTitle: "Rijksmuseum",
         id: collection.artObjects.objectNumber
       })
-  })
-.catch(err =>res.send) 
+    })
+    .catch(err => res.send)
 }
 
 // search
 app.get("/search", (req, res) => {
   fetch(`https://www.rijksmuseum.nl/api/nl/collection?key=${apiKey}&ps=25&imgonly=true&q=${req.query.q}`)
-  .then(async response => {
-    const collection = await response.json();
-    res.render('home', {
-    data: collection.artObjects
+    .then(async response => {
+      const collection = await response.json();
+      res.render('home', {
+        data: collection.artObjects
       });
     })
-    
+
     .catch(err => res.send(err))
-} )
+})
 
 
 // detail page
@@ -77,7 +73,7 @@ app.get('/:id', function (req, res) {
       return response.json();
     })
     .then(detailed => {
-     // console.log(detailed.artObject)
+      // console.log(detailed.artObject)
       res.render('detail', {
         data: detailed.artObject,
         pageTitle: "Rijksmuseum",

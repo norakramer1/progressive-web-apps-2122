@@ -51,7 +51,7 @@ h3 {
 a svg {
     position: relative;
     max-width: 100vw;
-
+    padding: 10%;
 }
 
 form {
@@ -100,7 +100,7 @@ ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
+    margin-top: 5%;
 }
 
 ul li {
@@ -141,12 +141,12 @@ ul li a {
 
 ul li img {
     list-style: none;
-     max-width: 40%;
+    max-width: 40%;
     max-height: 40%;
     z-index: 1;
     background-color: var(--image-background);
     box-shadow: 10px 10px 46px 0px rgba(0, 0, 0, 0.36);
-} 
+}
 
 ul.details {
     justify-content: center;
@@ -236,7 +236,7 @@ ul.details li img {
 
         max-height: 150px;
         max-width: 150px;
-    } 
+    }
 
     ul li h2 {
         font-size: 175%;
