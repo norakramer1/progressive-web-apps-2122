@@ -1,5 +1,5 @@
 # Progressive Web Apps @cmda-minor-web · 2021/22
-[Live link!](https://rijksart-pwa.herokuapp.com/)
+[Live link!](pwa-rijksart.cyclic.app)
 
 ## Table of contents
 - [About this project ](#About)
